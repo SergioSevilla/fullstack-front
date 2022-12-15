@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzas Full Stack</title>
+    <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div>
+        <img class="logotipo" src="images/pizza.jpg" alt="Pizza Full Stuck"/>
+        <h1 class="logotipo">Pizzas Full Stack</h1>
+    </div>
+    <div id="alerts"></div>
+    <form id="orderform" action="http://127.0.0.1:5000/pizza" method="post">
+        <div class="client">
+            <h2>Datos del cliente</h2>
+                <div class="inelement">
+                    <label class="element" for ="fname" id="fnamelabel"><sup>*</sup>Nombre : </label>
+                    <input class="element" type="text" id="fname" name ="fname"/>
+                </div>
+                <div class="inelement">
+                    <label class="element" for ="surname" id="surnamelabel"><sup>*</sup>Apellidos: </label>
+                    <input class="element" type="text" id="surname" name ="surname"/>
+                </div>
+                <div class="inelement">
+                    <label class="element" for ="dbirth">Fecha de nacimiento: </label>
+                    <input class="element" type="date" id="dbirth" name ="dbirth"/>
+                </div>
+                <div class="inelement">
+                    <label class="element" for ="number">Número de telefono: </label>
+                    <input class="element" type="text" id="number" name ="number"/>
+                </div>
+                <div class="inelement">
+                    <label class="element" for ="address">Dirección: </label>
+                    <textarea class="element" id="address" name="address" rows="5" cols="21"></textarea>
+                </div> 
+        </div>
+        <div class="order">
+            <h2>Datos del pedido</h2>
+                <div class="inelement">
+                    <label class="element" for ="size">Tamaño de la pizza: </label>
+                    <select class="element" id="size" name="size">
+                        <option value="small">Pequeña</option>
+                        <option value="medium" selected>Mediana</option>
+                        <option value="big">Grande</option>
+                    </select>
+                </div>
+                <div class="inelement">
+                    <div>
+                        <input type="checkbox" id="ingjam" name="ingjam" value="jam">
+                        <label for="ingjam">Jamón York</label>       
+                    </div>
+                    <div>
+                        <input type="checkbox" id="ingchamp" name="ingchamp" value="champ">
+                        <label for="ingchamp">Champiñones</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="ingpep" name="ingpep" value="pep">
+                        <label for="ingpep">Pepperoni</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="ingolive" name="ingolive" value="olive">
+                        <label for="ingolive">Aceitunas</label>
+                    </div>
+                </div>
+        </div>
+        <div class="keypad">
+            <input type="reset" value="Borrar">
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+    <script src ="js/jquery-3.6.1.min.js"></script>
+    <script src ="js/script.js"></script>
+</body>
+</html>
