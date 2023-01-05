@@ -39,3 +39,19 @@ $( "#orderform" ).submit(function( event ) {
     }
     
 });
+
+/* Listener para comprobar funcionalidad */
+$("#size").on('change', function() {
+    console.log(this.value);
+    $.ajax({
+        method: "POST",
+        url: "http://127.0.0.1:5000/checksize",
+        data: { size: this.value },
+        success : function (data) {
+            console.log(data);
+        },
+        error : function (jqXhr, textStatus, errorThrown) {
+            console.log (errorThrown)
+        }
+      });
+    });
