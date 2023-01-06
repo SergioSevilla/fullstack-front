@@ -26,6 +26,17 @@ function clearPreviousErrors() {
             
 }
 
+/* Función showAvailability(data) -> Muestra la disponibilidad del tamaño seleccionado */
+function showAvailability(data)
+{
+    $("#resultado_tamano").text(data);
+    if (data == "Disponible") {
+        $("#resultado_tamano").css("color", "blue");
+    } else {
+        $("#resultado_tamano").css("color", "red");
+    }
+}
+
 /* Listener para comprobar que nombre y apellidos no estén vacíos al formalizar pedido */
 $( "#orderform" ).submit(function( event ) {
     clearPreviousErrors();
@@ -42,16 +53,20 @@ $( "#orderform" ).submit(function( event ) {
 
 /* Listener para comprobar funcionalidad */
 $("#size").on('change', function() {
-    console.log(this.value);
     $.ajax({
         method: "POST",
         url: "http://127.0.0.1:5000/checksize",
         data: { size: this.value },
         success : function (data) {
-            console.log(data);
+            showAvailability (data)
         },
         error : function (jqXhr, textStatus, errorThrown) {
             console.log (errorThrown)
         }
-      });
     });
+});
+
+/* Disparadores al iniciar página */
+$('document').ready(function () {
+        $("#size").val("M").trigger('change');
+});

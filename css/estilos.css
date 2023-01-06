@@ -16,6 +16,17 @@ label
     width: 180px;
 }
 
+select
+{
+    width: 188px;
+}
+
+#available
+{
+    display: inline-block;
+    width: 180px;
+    padding-left: 10px;
+}
 
 #alerts
 {
